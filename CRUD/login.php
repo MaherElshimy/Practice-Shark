@@ -7,7 +7,7 @@ if (isset($_POST['email'])){
     $password = md5($_POST['password']);
 
     $connection_with_DB = mysqli_connect("localhost" , "root", "" , "shark management") ;
-    $query = "SELECT `firstname` , `email`  FROM `users` WHERE `email` = '$email' && `password` = '$password'" ; 
+    $query = "SELECT * FROM `users` WHERE `email` = '$email' && `password` = '$password'" ; 
     $connect_data = mysqli_query($connection_with_DB , $query);
 
     $user = mysqli_fetch_assoc($connect_data);

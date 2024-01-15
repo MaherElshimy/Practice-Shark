@@ -26,16 +26,24 @@ $students = mysqli_fetch_all($connect_data , 1);
         <tr>
             <th>id</th>
             <th>name</th>
+
+            <?php if($_SESSION['user']['role'] == 1): ?>
             <th>update</th>
             <th>delete</th>
+            <?php endif; ?>
+        
         </tr>
 
         <?php foreach ($students as $student) :?>
         <tr>
             <td><?= $student['id'];?></td>
             <td><?= $student['name'];?></td>
+
+            <?php if($_SESSION['user']['role'] == 1): ?>
             <td><a href="update.php?id=<?= $student['id'];?>">update</a></td>
             <td><a href="delete.php?id=<?= $student['id'];?>">delete</a></td>
+            <?php endif; ?>
+
         </tr>
         <?php endforeach; ?>
     </table>
