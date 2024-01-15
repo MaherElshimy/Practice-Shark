@@ -9,7 +9,7 @@ mysqli_query($connect_with_DB , $query);
 
 
 if (mysqli_affected_rows($connect_with_DB)==1) {
-    echo "Inserted" ; 
+    header("location:show.php");
 } elseif (mysqli_affected_rows($connect_with_DB) == -1 ) {
     echo "Syntax error" ;  
 } else { 
