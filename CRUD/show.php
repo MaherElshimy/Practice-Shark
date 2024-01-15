@@ -1,5 +1,9 @@
 <?php 
 
+session_start();
+if (empty($_SESSION['user'])) {
+    header("location: login.php");
+}
 $connect_with_DB = mysqli_connect("localhost","root" , "" ,"shark management");
 $query = "SELECT * FROM `student`" ; 
 
