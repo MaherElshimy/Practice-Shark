@@ -46,9 +46,23 @@ $object->print_calc();
 echo "<hr>";
 $object->div();
 $object->print_calc();
-
 echo "<hr>";
 
+
+
+class car {
+    public $color ; 
+    public function move(){
+        echo "move";
+    }
+}
+
+class bmw extends car {
+    public function stop(){
+        echo "stop";
+    }
+
+}
 
 
 ?>
