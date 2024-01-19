@@ -20,9 +20,38 @@ class db{
         return $this;
     } 
 
+    
+    public function insert($table, $data) {
+        $column = '' ;
+        $values = '' ;
+        foreach ($data as $key => $value) {
+            $column .=" `$key`," ;
+            $values .=" '$value'," ;
+        }
+
+        $column = rtrim($column,',');
+        $values = rtrim($values,',');
+
+        $this->sql = "INSERT INTO `$table` ($column) VALUES ($values) " ;
+        return $this;
+    } 
+
+
+    public function update($table, $data) {
+        $row = '' ;
+        foreach ($data as $key => $value) {
+            $row .=" `$key` = '$value'," ;
+        }
+        $row = rtrim($row,',');
+
+        $this->sql = "UPDATE `$table` SET $row" ;
+        return $this ;
+    }
+
     public function where($key , $operator , $value){
         $this->sql .= " WHERE `$key` $operator $value";
         return $this;
+        
     }
 
     public function get(){
@@ -48,8 +77,13 @@ class db{
 
 
 $db = new db() ; 
+$data = ['name' => 'Mostafa'];
 echo "<pre>";
-$db->delete('course')->where('id', '=' , 1)->execute();
+$db->update('student',$data)->where('id','=','12')->execute();
 echo "</pre>";
+
+
+
+
 
 ?>
