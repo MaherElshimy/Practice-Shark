@@ -2,7 +2,7 @@
 
 class db{
 
-    public $sql;
+    private $sql;
     public $connection;
 
     public function __construct() {
