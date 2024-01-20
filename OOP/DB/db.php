@@ -73,6 +73,10 @@ class db{
         mysqli_query($this->connection , $this->sql);
         return mysqli_affected_rows($this->connection);
     }
+
+    public function __destruct() {
+        mysqli_close($this->connection);
+    }
 }
 
 
